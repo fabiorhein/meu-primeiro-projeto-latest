@@ -1,0 +1,25 @@
+:host {
+    .background-red {
+        background-color: red;
+    };
+
+    .background-red {
+        background-color: blue;
+    };
+}
+
+.background-red {
+    background: red;
+};
+
+.background-red {
+    background: blue;
+};
+
+:host-context() {
+    
+}
+
+h2 {
+    background: gray;
+}

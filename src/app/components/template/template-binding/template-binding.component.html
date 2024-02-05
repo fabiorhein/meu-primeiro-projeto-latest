@@ -1,0 +1,63 @@
+<h2>Template</h2>
+<h3>Text Interpolation</h3>
+<!-- {{ name }} - {{ age }} - {{sum(1, 2)}} -->
+
+<p>{{ 1+1 }}</p>
+<p>{{ condition }}</p>
+
+<hr/>
+
+<h2>Property Binding</h2>
+<button [disabled]="isDisabled">Button</button>
+
+<hr/>
+
+<h2>Attribute Binding</h2>
+<p [attr.title]="name" [attr.aria-label]="name"> Fabio Rhein</p>
+
+<hr/>
+
+<h2>Class and Styles Binding</h2>
+<p [class.background-red]="true" [class.background-blue]="false">{{name}}</p>
+
+<p [style.text-decoration]="true"> {{ age }}</p>
+
+<hr/>
+
+<h2>Event Binding</h2>
+
+<!--
+    <element 
+        (TargetEventName)='TemplateStatement'>
+    </element>
+-->
+
+<button (click)="sum()">+</button>
+<button (click)="sub()">-</button>
+<input (keydown.shift.t)="onKeyDown($event)">
+
+<div 
+    style="background: red; width: 300px; height: 300px; margin-top: 10px;" 
+    (mousemove)="onMouseMove($event)"></div>
+
+<h3>Two way binding</h3>
+<input type="password" [(ngModel)]="name">
+
+<br>
+
+{{name}}
+
+
+<hr/>
+
+<h2>Diretivas de atributo</h2>
+<!-- Importar as diretivas OU CommonModule OU NgClass -->
+<div [ngClass]="{ 'background-red': age > 30, 'background-blue': age < 30 }">
+    Classes Condicionais.
+</div>
+
+<!-- Importar as diretivas OU CommonModule OU NgStyle -->
+<div [ngStyle]="{
+    color: age > 20 ? 'green' : 'red',
+    'font-size': age > 35 ? '10px' : '20px',
+}">Estilo Dinamico</div>

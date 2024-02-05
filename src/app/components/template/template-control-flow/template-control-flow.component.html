@@ -1,0 +1,105 @@
+<h4>Control Flow</h4>
+<h5>IF, FOR, SWITCH CASE</h5>
+
+<!-- Versão Nova -->
+<!-- @if (isTrue) { Sim 1 é === 1 } @else {  Não está correto } -->
+<!-- É necessário importar o CommonModule -->
+
+@switch (switchCondition) { @case ('A') {
+<p>Sim sua letra é: A</p>
+} @case ('B') {
+<p>Sim sua letra é: B</p>
+} @default {
+<p>Os dados não foram encontrados</p>
+} }
+
+<!-- <ul>
+  @for (item of items; track $index) {
+  <li>{{ item.name }}</li>
+  } @empty {
+  <li>Não Contem Valores</li>
+  }
+</ul> -->
+
+<!-- @for (item of itens; track item.name; let i = $index; let c = $count; let f =
+$first; let l = $last; let e = $even; let o = $odd; ) {
+<p>{{ item.name }}</p>
+<p>index - {{ i }}</p>
+<p>count - {{ c }}</p>
+<p>first - {{ f }}</p>
+<p>last - {{ l }}</p>
+<p>even - {{ e }}</p>
+<p>odd - {{ o }}</p>
+
+} -->
+
+<!-- @if (loadingData$ | async; as data) {
+<ul>
+  @for(item of data; track item) {
+  <li>{{item}}</li>
+  }
+</ul>
+} @else {
+<p>Carregando ...</p>
+} 
+
+@for(item of loadingData$ | async; track item) {
+<li>{{item}}</li>
+} -->
+
+<!-- Diretivas - Versão Antiga -->
+
+<ng-container [ngSwitch]="switchCondition">
+  <ng-container *ngSwitchCase="'A'">
+    <p>Sim sua letra é: A</p>
+  </ng-container>
+  <ng-container *ngSwitchCase="'B'">
+    <p>Sim sua letra é: B</p>
+  </ng-container>
+  <ng-container *ngSwitchDefault>
+    <p>Os dados não foram encontrados</p>
+  </ng-container>
+</ng-container>
+
+<!-- <ul>
+  <ng-container *ngIf="items.length === 0; else itemsExist">
+    <li>Não contem valores</li>
+  </ng-container>
+  <ng-template #itemsExist>
+    <ng-container *ngFor="let item of items">
+      <li>{{ item.name }}</li>
+    </ng-container>
+  </ng-template>
+</ul> -->
+
+<!-- <ng-container
+  *ngFor="
+    let item of itens;
+    let i = index;
+    let c = count;
+    let f = first;
+    let l = last;
+    let e = even;
+    let o = odd;
+    trackBy: trackByFn
+  ">
+  <p>{{ item.name }}</p>
+  <p>index - {{ i }}</p>
+  <p>count - {{ c }}</p>
+  <p>first - {{ f }}</p>
+  <p>last - {{ l }}</p>
+  <p>even - {{ e }}</p>
+  <p>odd - {{ o }}</p>
+</ng-container> -->
+
+<!-- <ng-container *ngIf="loadingData$ | async as data; else loading">
+  <ul>
+    <ng-container *ngFor="let item of data; trackBy: trackByFn">
+        <li>{{item}}</li>
+    </ng-container>
+  </ul>
+</ng-container>
+<ng-template #loading> <p>Carregando</p> </ng-template> -->
+
+<!-- <input type="text" #name>
+<button (click)="addNewName(name.value)">Add Name</button> -->
